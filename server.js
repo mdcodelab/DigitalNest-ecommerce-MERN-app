@@ -7,6 +7,7 @@ const connectDB = require("./connectDB");
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 const userRoutes=require("./routes/userRoutes");
 const productRoutes=require("./routes/productRoutes");
+const imagesRoutes=require("./routes/imagesRoutes");
 
 // Middleware
 app.use(express.urlencoded({extended: true}));
@@ -21,6 +22,7 @@ app.get("/", (req, res) => {
 
 app.use("/users", userRoutes);
 app.use("/products", productRoutes);
+app.use("/images", imagesRoutes);
 // const server = http.createServer(app);
 // const { Server } = require("socket.io");
 // const io = new Server(server, {
