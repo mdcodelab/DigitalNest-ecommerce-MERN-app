@@ -88,7 +88,7 @@ function Signup () {
 
 const Div = styled(Container)`
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
   height: calc(100vh - 6rem);
   .row {

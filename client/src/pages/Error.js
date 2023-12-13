@@ -19,8 +19,9 @@ function Error() {
 const Wrapper = styled.div`
 width: 100%;
 height: calc(100vh - 6rem);
-max-width: 1200px;
+max-width: var(--max-width);
 margin: 0 auto;
+color: var(--yellow-color);
 
 .error__content {
 position: relative;

@@ -80,7 +80,7 @@ function Navigation () {
 
 const Navbar = styled.nav`
   width: 100%;
-  max-width: 1200px;
+  max-width: 1350px;
   height: 6rem;
   background: var(--yellow-color);
   margin: 0 auto;
@@ -206,6 +206,7 @@ const Navbar = styled.nav`
   .logo__name {
     transition: all 0.5s ease-in-out;
     text-shadow: 2px 2px 2px var(--grey-color2);
+    letter-spacing: 0.08rem;
   }
 
   .login__link:hover,

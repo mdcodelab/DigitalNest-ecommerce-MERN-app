@@ -67,7 +67,7 @@ const Div = styled(Container)`
   width: 100%;
   height: calc(100vh - 6rem);
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: var(--max-width);
   .row {
     width: 300px;
     height: 25rem;

@@ -56,12 +56,14 @@ function showWidget () {
 
 
     //get all products
-    const dispatch=useDispatch();
-    const products = useSelector(state => state.products);
-    const lastProducts = products.slice(0, 8); 
-    React.useEffect(() => {
-      axios.get("/pproducts").then((data => console.log(data)))
-    }, [])
+    // const dispatch=useDispatch();
+    // const products = useSelector(state => state.products);
+    // const lastProducts = products.slice(0, 8); 
+    // React.useEffect(() => {
+    //   axios.get("/pproducts").then((data => console.log(data)))
+    // }, [])
+
+
     ///submit de form
     function handleSubmit(e) {
   e.preventDefault();
@@ -189,7 +191,7 @@ return (
 const Wrapper = styled.div`
   div.wrapper__content {
     width: 100%;
-    max-width: 1200px;
+    max-width: var(--max-width);
     height: 100%;
     margin: 0 auto;
     display: flex;

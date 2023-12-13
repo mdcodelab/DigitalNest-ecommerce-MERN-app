@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { categories } from "../categories";
 import {Tilt} from "react-tilt";
 import banner from "../assets/banner.png";
+import Footer from "../components/Footer";
+
 
 function Home() {
   return (
@@ -40,20 +42,22 @@ function Home() {
           })}
         </div>
       </div>
+      <Footer></Footer>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 80vh;
+  height: 100%;
 
   .featured__products {
     width: 100%;
     height: 50vh;
     padding: 1rem 0;
-    max-width: 1200px;
+    max-width: var(--max-width);
     margin: 0 auto;
+
   }
 
   .featured__products a {
@@ -62,7 +66,7 @@ const Wrapper = styled.div`
 
   .banner {
     width: 100%;
-    max-width: 1200px;
+    max-width: var(--max-width);
     height: auto;
     margin: 0 auto;
   }
@@ -89,7 +93,6 @@ const Wrapper = styled.div`
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
-    margin-bottom: 1rem;
   }
 
   .category__item {
@@ -98,7 +101,7 @@ const Wrapper = styled.div`
     position: relative;
     border-radius: 0.3rem;
     box-shadow: var(--shadow2);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5em;
   }
 
   .category__item div {
@@ -125,8 +128,7 @@ const Wrapper = styled.div`
     object-fit: cover;
     border-radius: 0.5rem;
     border-radius: 0.3rem;
-  }
-`;
+  }`;
 
 export default Home;
 
