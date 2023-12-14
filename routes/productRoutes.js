@@ -15,16 +15,17 @@ router.get("/", async (req, res) => {
 
 // Create products
 router.post("/", async (req, res) => {
-  const { name, description, price, category, images: pictures } = req.body;
+  const { name, description, price, category, images} = req.body;
   try {
     const product = await Product.create({
       name,
       description,
       price,
       category,
-      images: pictures,
+      images
     });
     res.status(201).json({ product });
+    console.log(req.body.name, req.body.price, req.body.images);
   } catch (error) {
     res.status(400).send(error.message);
   }
@@ -40,7 +41,7 @@ router.patch("/:id", async (req, res) => {
       description,
       price,
       category,
-      images,
+      images
     });
     const products = await Product.find();
     res.status(200).json(products);

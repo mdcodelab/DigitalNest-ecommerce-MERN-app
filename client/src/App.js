@@ -13,7 +13,7 @@ import CartPage from "./pages/CartPage";
 import OrdersPage from "./pages/OrdersPage";
 import NewProduct from "./pages/NewProduct";
 import CategoryPage from "./pages/CategoyPage";
-import ProductPage from "./pages/ProductPage";
+import ProductPreview from "./pages/ProductPage";
 import { useSelector } from "react-redux";
 
 
@@ -46,7 +46,7 @@ function App() {
             </>
           )}
 
-          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/product/:id" element={<ProductPreview />} />
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/new-product" element={<NewProduct />} />
 

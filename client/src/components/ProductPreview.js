@@ -1,21 +1,18 @@
 import React from 'react';
-import styled from "styled-components";
 import {Link} from "react-router-dom";
 
 function ProductPreview({_id, category, name, pictures}) {
 
   return (
-    <Wrapper to={`/product/${_id}`}>
+    <Link to={`/product/${_id}`} className="product__preview__container">
       <div className="product__content">
         <img src={pictures[0]}></img>
         <p>{name}</p>
+        <span>{category}</span>
       </div>
-    </Wrapper>
+    </Link>
   );
 }
 
-const Wrapper = styled.a`
-
-`;
 
 export default ProductPreview;
