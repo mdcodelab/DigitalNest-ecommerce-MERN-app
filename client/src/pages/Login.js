@@ -4,19 +4,21 @@ import {Link} from "react-router-dom";
 import styled from "styled-components";
 import { useLoginMutation } from '../appApi';
 import { Alert } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 
 function Login() {
   const [email, setEmail]=React.useState("");
   const[password, setPassword]=React.useState("");
   const [login, {error, isError, isLoading}]=useLoginMutation();
-
+const navigate=useNavigate();
   
 async function handleLogin(e) {
   e.preventDefault();
   try {
     const response = await login({email, password});
     console.log("Login response:", response);
+    navigate("/")
   } catch (error) {
     console.log("Login error:", error);
   }

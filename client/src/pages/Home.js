@@ -5,13 +5,33 @@ import { categories } from "../categories";
 import {Tilt} from "react-tilt";
 import banner from "../assets/banner.png";
 import Footer from "../components/Footer";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { updateProducts } from "../features/productSlice";
+import ProductPreview from "../components/ProductPreview";
 
 
 function Home() {
+const products = useSelector((state) => state.products);
+const lastProducts=products.slice(0, 8);
+console.log(lastProducts);
+//const lastProducts = products ? products.slice(0, 8) : [];
+
+const dispatch=useDispatch();
+  React.useEffect(() => {
+    axios.get("http://localhost:5000/products").then(({ data }) => dispatch(updateProducts(data)));
+  }, []);
+
   return (
     <Wrapper className="home__container">
       <div className="featured__products">
         <h2>Last Products</h2>
+        <div className="last__products">
+        {lastProducts.map((product, index) => {
+          return <ProductPreview key={index} {...product}></ProductPreview>
+        })}        
+        </div>
         <Link to="/category/all">See more {">>"}</Link>
       </div>
 
@@ -128,11 +148,16 @@ const Wrapper = styled.div`
     object-fit: cover;
     border-radius: 0.5rem;
     border-radius: 0.3rem;
-  }`;
+  }
+  
+  div.last__products {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  `;
 
 export default Home;
 
-
-
-
-    

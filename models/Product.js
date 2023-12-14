@@ -18,7 +18,7 @@ const ProductSchema = mongoose.Schema(
       type: String,
       required: [true, "can't be blank"],
     },
-    picture: {
+    pictures: {
       type: Array,
       required: [true, "can't be blank"],
     },

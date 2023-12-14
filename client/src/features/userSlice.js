@@ -20,8 +20,7 @@ export const userSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addMatcher(appApi.endpoints.signup.matchFulfilled, (_, { payload }) => payload);
-        builder.addMatcher(appApi.endpoints.login.matchFulfilled,(_, { payload }) => payload
-        );
+        builder.addMatcher(appApi.endpoints.login.matchFulfilled, (_, { payload }) => payload);
     },
 });
 

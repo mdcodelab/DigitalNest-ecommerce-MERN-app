@@ -4,19 +4,21 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useSignupMutation } from "../appApi";
 import { Alert} from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 function Signup () {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [name, setName]=React.useState("");
   const [signup, {error, isLoading, isError}]=useSignupMutation();
-
+const navigate = useNavigate();
   
     async function handleSignup(e) {
       e.preventDefault();
       try {
         await signup({ name, email, password });
         // Access the result if needed
+        navigate("/");
         //console.log(result);
       } catch (error) {
         // Handle error if necessary

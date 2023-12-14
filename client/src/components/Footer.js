@@ -12,28 +12,28 @@ function Footer() {
       <div className="up">
         <div className="up__left">
           <div className="programs">
-            <h3>Programs</h3>
+            <h4>Programs</h4>
             <Link to="/corporate">Corporate</Link>
             <Link to="/one-to-one">One to One</Link>
             <Link to="/stores">Our stores</Link>
           </div>
 
           <div className="service">
-            <h3>Services</h3>
+            <h4>Services</h4>
             <Link to="/training">Training</Link>
             <Link to="/consulting">Consulting</Link>
             <Link to="/sales">Sales</Link>
           </div>
 
           <div className="contact">
-            <h3>Contact</h3>
+            <h4>Contact</h4>
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
           </div>
         </div>
         <div className="up__right">
-          <h3>Newsletter</h3>
+          <h4>Newsletter</h4>
           <form
             className="form__newsletter"
             action="https://formspree.io/f/mbjvoylv"
@@ -91,7 +91,7 @@ function Footer() {
 
       <div className="down">
         <div className="down__left">
-          <h2>DigilaNest</h2>
+          <Link to="/"><h2>DigitalNest</h2></Link>
         </div>
         <div className="down__right">
           <p>
@@ -134,21 +134,26 @@ const Wrapper = styled.div`
   div.up__left {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+  }
+
+  div.up__left a {
+    font-size: 0.9em;
+    margin-right: 1rem;
   }
 
   div.up__left a,
-  div.up__left h3 {
+  div.up__left h4 {
     margin-bottom: 1rem;
     color: var(--yellow-color);
   }
 
-  div.up__left h3 {
+  div.up__left h4 {
     color: #fff;
   }
 
   /* right */
-  div.up__right h3 {
+  div.up__right h4 {
     text-align: center;
     color: #fff;
     margin-bottom: 1rem;
@@ -220,6 +225,10 @@ const Wrapper = styled.div`
     color: var(--yellow-color);
   }
 
+  div.down p {
+    font-size: 0.9rem;
+  }
+
   @media (max-width: 770px) {
     div.up {
       flex-direction: column;
@@ -227,28 +236,16 @@ const Wrapper = styled.div`
     div.up__left {
       margin-bottom: 1rem;
     }
-    div.up__left h3,
-    div.up__right h3 {
-      font-size: 1rem !important;
-    }
     div.up__left a {
       font-size: 0%.9rem;
     }
     div.down {
       flex-direction: column;
     }
-    div.down h2 {
-        font-size: 1.2rem;
-        margin-bottom: 0.5rem;
-    }
     .div.down p {
-        font-size: 0.6rem;
+      font-size: 0.6rem;
     }
   }
 `;
 
 export default Footer;
-
-
-
-//////////////////////////

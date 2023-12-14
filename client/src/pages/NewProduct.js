@@ -1,13 +1,13 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
 import styled from "styled-components";
+import Footer from '../components/Footer';
 import {useCreateProductMutation} from "../appApi";
 import {Alert} from "react-bootstrap";
 import newProduct from "../assets/newProduct.avif";
 import { IoMdClose } from "react-icons/io";
 import axios from "../axios";
 //import axios from "axios";
-import { useDispatch, useSelector } from 'react-redux';
 
 function NewProduct() {
 const [name, setName]=React.useState("");
@@ -15,9 +15,11 @@ const[description, setDescription]=React.useState("");
 const[price, setPrice]=React.useState("");
 const[category, setCategory]=React.useState("");
 const [images, setImages]=React.useState([]);
+
 const[imageToRemove, setImageToRemove]=React.useState(null);
 
 const navigate = useNavigate();
+
 const[createProduct, {error, isError, isSuccess, isLoading}]=useCreateProductMutation();
 
 function showWidget () {
@@ -55,15 +57,6 @@ function showWidget () {
     }
 
 
-    //get all products
-    // const dispatch=useDispatch();
-    // const products = useSelector(state => state.products);
-    // const lastProducts = products.slice(0, 8); 
-    // React.useEffect(() => {
-    //   axios.get("/pproducts").then((data => console.log(data)))
-    // }, [])
-
-
     ///submit de form
     function handleSubmit(e) {
   e.preventDefault();
@@ -73,7 +66,9 @@ function showWidget () {
   createProduct({ name, description, price, category, images })
     .then(data => {
       console.log("Product created:", data);
-      navigate("/");
+      setTimeout(() => {
+        navigate("/");
+      }, 1500);
     })
     .catch(error => {
       console.error("Error creating product:", error);
@@ -183,6 +178,7 @@ return (
         </div>
       ))}
     </div>
+    <Footer></Footer>
   </Wrapper>
 );
   
