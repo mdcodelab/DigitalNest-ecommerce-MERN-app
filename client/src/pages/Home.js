@@ -14,8 +14,9 @@ import ProductPreview from "../components/ProductPreview";
 
 function Home() {
 const products = useSelector((state) => state.products);
+console.log(products);
 const lastProducts=products.slice(0, 8);
-console.log(lastProducts);
+//console.log(lastProducts);
 //const lastProducts = products ? products.slice(0, 8) : [];
 
 const dispatch=useDispatch();
@@ -32,7 +33,7 @@ const dispatch=useDispatch();
           return <ProductPreview key={index} {...product}></ProductPreview>
         })}        
         </div>
-        <Link to="/category/all">See more {">>"}</Link>
+        <Link to="/category/all" style={{textAlign: "right"}}>See more {">>"}</Link>
       </div>
 
       {/* Corrected typo: banner */}
@@ -73,8 +74,8 @@ const Wrapper = styled.div`
 
   .featured__products {
     width: 100%;
-    height: 50vh;
-    padding: 1rem 0;
+    height: 100%;
+    padding: 1rem;
     max-width: var(--max-width);
     margin: 0 auto;
 
@@ -151,6 +152,7 @@ const Wrapper = styled.div`
   }
   
   div.last__products {
+    height: 100%;
     padding: 1.5rem;
     display: flex;
     align-items: center;
