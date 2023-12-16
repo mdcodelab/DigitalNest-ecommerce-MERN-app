@@ -1,17 +1,24 @@
-import React from 'react';
-import {Link} from "react-router-dom";
+import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-function ProductPreview({_id, name, images, price, category}) {
-
+function SimilarProduct({ _id, name, price, category, images }) {
   return (
     <Link
       to={`/products/${_id}`}
       className="product__preview__container"
-      style={{ width: "290px", height: "250px", margin: "1.5rem", boxShadow: "var(--box-shadow3"}}>
+      style={{
+        width: "290px",
+        height: "250px",
+        margin: "1.5rem",
+        boxShadow: "var(--box-shadow3)",
+      }}
+    >
       <Wrapper className="product__content">
         <div className="product__content__info">
-          <img src={images[0].url} className="product__image" alt={name}></img>
+          {images && images.length > 0 && (
+            <img src={images[0]?.url} className="product__image" alt={name} />
+          )}
           <div className="cover__img"></div>
           <div className="product__details">
             <h5>{name}</h5>
@@ -23,6 +30,7 @@ function ProductPreview({_id, name, images, price, category}) {
     </Link>
   );
 }
+
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -49,7 +57,8 @@ const Wrapper = styled.div`
     width: 290px;
     height: 165px;
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     z-index: 2;
     background: transparent;
     display: flex;
@@ -58,8 +67,8 @@ const Wrapper = styled.div`
     transition: all 0.5s ease-in-out;
   }
 
-  .cover__img:hover{
-    background: rgba(0,0,0,0.4);
+  .cover__img:hover {
+    background: rgba(0, 0, 0, 0.4);
   }
 
   div.product__details {
@@ -92,4 +101,4 @@ const Wrapper = styled.div`
   }
 `;
 
-export default ProductPreview;
+export default SimilarProduct;

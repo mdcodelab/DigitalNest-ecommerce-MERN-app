@@ -15,7 +15,7 @@ import NewProduct from "./pages/NewProduct";
 import CategoryPage from "./pages/CategoryPage";
 import ProductPreview from "./pages/ProductPage";
 import { useSelector } from "react-redux";
-
+import SimilarProduct from "./components/SimilarProduct";
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -26,6 +26,7 @@ function App() {
         <Navigation></Navigation>
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
+          
           {!user && (
             <>
               <Route path="/login" element={<Login></Login>}></Route>
@@ -39,8 +40,14 @@ function App() {
 
               {user && user.isAdmin && (
                 <>
-                  <Route path="/admin" element={<AdminDashboard></AdminDashboard>} />
-                  <Route path="/product/:id/edit" element={<EditProductPage />}/>
+                  <Route
+                    path="/admin"
+                    element={<AdminDashboard></AdminDashboard>}
+                  />
+                  <Route
+                    path="/product/:id/edit"
+                    element={<EditProductPage />}
+                  />
                 </>
               )}
             </>
