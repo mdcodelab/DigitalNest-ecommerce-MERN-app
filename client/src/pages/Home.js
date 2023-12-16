@@ -14,9 +14,9 @@ import ProductPreview from "../components/ProductPreview";
 function Home() {
 const products = useSelector((state) => state.products);
 console.log(products);
-const lastProducts=products.slice(0, 8);
+//const lastProducts=products.slice(0, 8);
 //console.log(lastProducts);
-//const lastProducts = products ? products.slice(0, 8) : [];
+const lastProducts = products ? products.slice(0, 8) : [];
 
 const dispatch=useDispatch();
   React.useEffect(() => {
@@ -29,7 +29,7 @@ const dispatch=useDispatch();
       <div className="featured__products">
         <h2>Last Products</h2>
         <div className="last__products">
-          {lastProducts.map((product, index) => {
+          { lastProducts.map((product, index) => {
             return <ProductPreview key={index} {...product}></ProductPreview>;
           })}
         </div>
