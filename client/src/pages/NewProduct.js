@@ -7,7 +7,6 @@ import { Alert } from "react-bootstrap";
 import newProduct from "../assets/newProduct.avif";
 import { IoMdClose } from "react-icons/io";
 import axios from "../axios";
-//import axios from "axios";
 
 function NewProduct() {
   const [name, setName] = React.useState("");

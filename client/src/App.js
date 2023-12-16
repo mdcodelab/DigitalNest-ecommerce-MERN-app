@@ -7,12 +7,12 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import EditProductPage from "./pages/EditProductPage";
-import AdminDashbord from "./pages/AdminDashbord";
+import AdminDashboard from "./pages/AdminDashboard";
 import Error from "./pages/Error";
 import CartPage from "./pages/CartPage";
 import OrdersPage from "./pages/OrdersPage";
 import NewProduct from "./pages/NewProduct";
-import CategoryPage from "./pages/CategoyPage";
+import CategoryPage from "./pages/CategoryPage";
 import ProductPreview from "./pages/ProductPage";
 import { useSelector } from "react-redux";
 
@@ -39,14 +39,14 @@ function App() {
 
               {user && user.isAdmin && (
                 <>
-                  <Route path="/admin" element={<AdminDashbord></AdminDashbord>} />
+                  <Route path="/admin" element={<AdminDashboard></AdminDashboard>} />
                   <Route path="/product/:id/edit" element={<EditProductPage />}/>
                 </>
               )}
             </>
           )}
 
-          <Route path="/product/:id" element={<ProductPreview />} />
+          <Route path="/products/:id" element={<ProductPreview />} />
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/new-product" element={<NewProduct />} />
 

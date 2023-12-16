@@ -73,10 +73,13 @@ router.get("/:id", async (req, res) => {
   try {
     const product = await Product.findById(id);
     const similar = await Product.find({category: product.category}).limit(5);
-    res.status(200).json(product, similar);
+    res.status(200).json({product, similar});
   } catch (error) {
     res.status(400).send(error.message);
   }
 });
 
 module.exports = router;
+
+
+

@@ -1,18 +1,21 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import styled from "styled-components";
+import { FaLaptop } from "react-icons/fa";
 
 function ProductPreview({_id, name, images, price, category}) {
 
   return (
     <Link
-      to={`/product/${_id}`}
+      to={`/products/${_id}`}
       className="product__preview__container"
-      style={{ width: "290px", height: "250px", margin: "1.5rem", boxShadow: "var(--box-shadow3"}}
-    >
+      style={{ width: "290px", height: "250px", margin: "1.5rem", boxShadow: "var(--box-shadow3"}}>
       <Wrapper className="product__content">
-        <div className="product__contant__info">
-          <img src={images[0].url} className="product__image"></img>
+        <div className="product__content__info">
+          <img src={images[0].url} className="product__image" alt={name}></img>
+          <div className="cover__img">
+          <FaLaptop className="icon__laptop" style={{color: "transparent", fontSize: "2.5rem"}}>
+          </FaLaptop></div>
           <div className="product__details">
             <h5>{name}</h5>
             <h5>${price}</h5>
@@ -41,6 +44,27 @@ const Wrapper = styled.div`
     border-radius: 0.3rem;
   }
 
+  .product__content__info {
+    position: relative;
+  }
+
+  .cover__img {
+    width: 290px;
+    height: 165px;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 2;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .cover__img:hover{
+    background: rgba(0,0,0,0.4);
+  }
+
   div.product__details {
     width: 100%;
     height: 44px;
@@ -53,7 +77,8 @@ const Wrapper = styled.div`
   div.product__details h5 {
     color: #333;
     letter-spacing: 0.06rem;
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
   }
 
   span.category__info {

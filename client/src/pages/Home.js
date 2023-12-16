@@ -11,7 +11,6 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import { updateProducts } from "../features/productSlice";
 import ProductPreview from "../components/ProductPreview";
 
-
 function Home() {
 const products = useSelector((state) => state.products);
 console.log(products);
@@ -24,21 +23,24 @@ const dispatch=useDispatch();
     axios.get("http://localhost:5000/products").then(({ data }) => dispatch(updateProducts(data)));
   }, []);
 
+
   return (
     <Wrapper className="home__container">
       <div className="featured__products">
         <h2>Last Products</h2>
         <div className="last__products">
-        {lastProducts.map((product, index) => {
-          return <ProductPreview key={index} {...product}></ProductPreview>
-        })}        
+          {lastProducts.map((product, index) => {
+            return <ProductPreview key={index} {...product}></ProductPreview>;
+          })}
         </div>
-        <Link to="/category/all" style={{textAlign: "right"}}>See more {">>"}</Link>
+        <Link to="/category/all" style={{ textAlign: "right" }}>
+          See more {">>"}
+        </Link>
       </div>
 
       {/* Corrected typo: banner */}
       <div className="banner">
-      <img src={banner} alt="banner"></img>
+        <img src={banner} alt="banner"></img>
       </div>
 
       <div className="recent__products">
@@ -49,15 +51,18 @@ const dispatch=useDispatch();
             return (
               // Corrected typo: 'stc' to 'src', added 'alt' for image accessibility
               <Tilt key={index} options={{ max: 20, scale: 1.03 }}>
-                <Link to={`/category/${name.toLowerCase()}`} className="category__items__links">
-                <div className="category__item">
-                  <div>
-                    {" "}
-                    <h2>{name}</h2>
+                <Link
+                  to={`/category/${name.toLowerCase()}`}
+                  className="category__items__links"
+                >
+                  <div className="category__item">
+                    <div>
+                      {" "}
+                      <h2>{name}</h2>
+                    </div>
+                    <img src={image} alt={name} />
                   </div>
-                  <img src={image} alt={name}/>
-                </div>
-              </Link>
+                </Link>
               </Tilt>
             );
           })}
@@ -101,6 +106,8 @@ const Wrapper = styled.div`
     width: 100%;
     height: 50vh;
     padding: 0 1.5rem;
+    max-width: 1350px;
+    margin: 0 auto;
   }
 
   .recent__products h2 {
