@@ -66,13 +66,17 @@ const Wrapper = styled.div`
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1.5rem 0;
 
   .category__name {
     text-align: center;
     color: #777;
     letter-spacing: 0.08rem;
     margin-bottom: 1.5rem;
+    background: #777;
+    color: var(--yellow-color);
+    padding: 0.5rem 0;
+    width: 100%;
   }
 
   .search__category {
@@ -92,6 +96,12 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
+  }
+
+  @media (max-width: 750px) {
+    .category__name {
+      font-size: 1.5rem;
+    }
   }
 `;
 

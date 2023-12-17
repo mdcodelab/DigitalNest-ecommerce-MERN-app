@@ -1,8 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-//components
 import Navigation from "./components/Navigation";
-// pages
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
@@ -15,7 +13,7 @@ import NewProduct from "./pages/NewProduct";
 import CategoryPage from "./pages/CategoryPage";
 import ProductPreview from "./pages/ProductPage";
 import { useSelector } from "react-redux";
-import SimilarProduct from "./components/SimilarProduct";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -23,27 +21,23 @@ function App() {
   return (
     <div className="container">
       <Router>
-        <Navigation></Navigation>
+        <ScrollToTop /> {/* Move ScrollToTop inside Router */}
+        <Navigation />
         <Routes>
-          <Route path="/" element={<Home></Home>}></Route>
-          
+          <Route path="/" element={<Home />} />
           {!user && (
             <>
-              <Route path="/login" element={<Login></Login>}></Route>
-              <Route path="/signup" element={<Signup></Signup>}></Route>
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
             </>
           )}
           {user && (
             <>
               <Route path="/cart" element={<CartPage />} />
               <Route path="/orders" element={<OrdersPage />} />
-
-              {user && user.isAdmin && (
+              {user.isAdmin && (
                 <>
-                  <Route
-                    path="/admin"
-                    element={<AdminDashboard></AdminDashboard>}
-                  />
+                  <Route path="/admin" element={<AdminDashboard />} />
                   <Route
                     path="/product/:id/edit"
                     element={<EditProductPage />}
@@ -52,11 +46,9 @@ function App() {
               )}
             </>
           )}
-
           <Route path="/products/:id" element={<ProductPreview />} />
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/new-product" element={<NewProduct />} />
-
           <Route path="*" element={<Error />} />
         </Routes>
       </Router>
