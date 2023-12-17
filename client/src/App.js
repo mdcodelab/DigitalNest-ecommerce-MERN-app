@@ -38,10 +38,7 @@ function App() {
               {user.isAdmin && (
                 <>
                   <Route path="/admin" element={<AdminDashboard />} />
-                  <Route
-                    path="/product/:id/edit"
-                    element={<EditProductPage />}
-                  />
+                  <Route path="/product/:id/edit" element={<EditProductPage />}/>
                 </>
               )}
             </>

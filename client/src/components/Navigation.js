@@ -40,6 +40,11 @@ function Navigation () {
               <div className={show ? "drop__container show" : "drop__container"}>
                 {user && !user.isAdmin && <Link to="/cart" className="cart">
                 <FaCartShopping style={{display: "block", marginRight: "0.5rem", color: "#777"}}></FaCartShopping> Cart</Link>}
+                      {user?.cart.count > 0 && (
+                                        <span className="badge badge-warning" id="cartcount">
+                                            {user.cart.count}
+                                        </span>)}
+//////////////////////////////
                 {user && !user.isAdmin && <Link to="/orders">My Orders</Link>}
                 {user && user.isAdmin && (
                   <Link to="/dashboard">Dashboard</Link>
