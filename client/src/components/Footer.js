@@ -161,15 +161,17 @@ const Wrapper = styled.div`
 
   .btn__newsletter {
     margin: 0;
-    display: inline-block;
+    display: block;
     color: #333;
     background: var(--yellow-color);
     transition: all 0.5s ease-in-out;
+    margin-left: 0.15rem;
   }
 
   .btn__newsletter:hover {
     background: #333;
     color: var(--yellow-color);
+    border: 1px solid var(--yellow-color) !important;
   }
 
   form.form__newsletter {

@@ -215,12 +215,12 @@ const Navbar = styled.nav`
     color: red;
   }
 
-  i.notifications__icon {
+  .notifications__icon {
     transition: 0.5s ease-in-out;
   }
 
-  i.notifications__icon:hover {
-    transform: scale(1.05);
+  .notifications__icon:hover {
+    transform: scale(1.15);
   }
 
   @media only screen and (max-width: 900px) {
